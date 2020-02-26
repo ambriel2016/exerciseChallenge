@@ -30,7 +30,7 @@
 
 <h1>Employee Form</h1>
 
-<form action="#" th:action="@{/process}" th:object="${employee}" method="post">
+<form action="#" th:action="@{/processEmployee}" th:object="${employee}" method="post">
     <input type="hidden" th:field="*{id}" />
     First Name :<input type="text" placeholder="first_name" th:field="*{first_name}" />
     <span th:if="${#fields.hasErrors('first_name')}"

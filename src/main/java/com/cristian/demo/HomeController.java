@@ -103,6 +103,7 @@ public class HomeController {
         // Grab all the directors from the database and send them to
         // the template
         model.addAttribute("companies", companyRepository.findAll());
+        model.addAttribute("employees", employeeRepository.findAll());
         return "index";
     }
 
