@@ -7,14 +7,24 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String first_name;
-    private String last_name;
+    private String firstName;
+    private String lastName;
     private String position;
-    private String Shift;
+    private String shift;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="company_id")
     private Company company;
+
+    public Employee() {
+    }
+    public Employee(long id, String firstName, String lastName, String position, String shift){
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.position = position;
+        this.shift = shift;
+    }
 
     public long getId() {
         return id;
@@ -24,20 +34,20 @@ public class Employee {
         this.id = id;
     }
 
-    public String getFirst_name() {
-        return first_name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public void setFirstName(String first_name) {
+        this.firstName = firstName;
     }
 
-    public String getLast_name() {
-        return last_name;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getPosition() {
@@ -48,13 +58,9 @@ public class Employee {
         this.position = position;
     }
 
-    public String getShift() {
-        return Shift;
-    }
+    public String getShift() { return shift; }
 
-    public void setShift(String shift) {
-        Shift = shift;
-    }
+    public void setShift(String shift) { this.shift = shift; }
 
     public Company getCompany() {
         return company;

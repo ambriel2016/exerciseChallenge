@@ -15,8 +15,8 @@
             <h1 th:text="${company.name}"></h1>
             <p th:inline="text">The company's name is [[${company.name}]]</p>
             <div th:each="employee: ${company.employees}">
-                <p th:text="${employee.first_name}"></p>
-                <p th:text="${employee.last_name}"></p>
+                <p th:text="${employee.firstName}"></p>
+                <p th:text="${employee.lastName}"></p>
                 <p th:text="${employee.position}"></p>
                 <p th:text="${employee.shift}"></p>
             </div>

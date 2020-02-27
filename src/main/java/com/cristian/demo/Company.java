@@ -15,6 +15,14 @@ public class Company {
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     public Set<Employee> employees;
 
+    public Company() {
+    }
+    public Company(long id, String name, String location, String numberEmployees){
+        this.id = id;
+        this.name = name;
+        this.location = location;
+        this.numberEmployees = numberEmployees;
+    }
 
     public long getId() {
         return id;

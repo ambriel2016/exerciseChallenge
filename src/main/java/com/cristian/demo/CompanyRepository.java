@@ -6,6 +6,6 @@ import java.util.ArrayList;
 
 public interface CompanyRepository extends CrudRepository<Company, Long> {
 
-    public ArrayList<Company> findByName(String name);
+    ArrayList<Company> findByName(String name);
 }
 

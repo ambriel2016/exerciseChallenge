@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.HashSet;
@@ -46,29 +43,28 @@ public class HomeController {
         company3.setLocation("Baltimore MD");
         company3.setNumberEmployees("25,000");
 
-
         // Now let's create a movie
         Employee employee = new Employee();
-        employee.setFirst_name("Bobby T.");
-        employee.setLast_name("Lynch");
+        employee.setFirstName("Bobby T.");
+        employee.setLastName("Lynch");
         employee.setPosition("Finance Analyst");
         employee.setShift("Morning");
 
         Employee employee1 = new Employee();
-        employee1.setFirst_name("Robert G.");
-        employee1.setLast_name("Harris");
+        employee1.setFirstName("Robert G.");
+        employee1.setLastName("Harris");
         employee1.setPosition("Executer Analyst");
         employee1.setShift("Morning");
 
         Employee employee2 = new Employee();
-        employee2.setFirst_name("James N.");
-        employee2.setLast_name("Sullivan");
+        employee2.setFirstName("James N.");
+        employee2.setLastName("Sullivan");
         employee2.setPosition("Dermatology Nurse");
         employee2.setShift("Morning");
 
         Employee employee3 = new Employee();
-        employee3.setFirst_name("Joseph D.");
-        employee3.setLast_name("Viramontes");
+        employee3.setFirstName("Joseph D.");
+        employee3.setLastName("Viramontes");
         employee3.setPosition("Automated systems librarian");
         employee3.setShift("Afternoon");
 
@@ -83,8 +79,8 @@ public class HomeController {
         employees3.add(employee3);
 
         employee = new Employee();
-        employee.setFirst_name("Gary M.");
-        employee.setLast_name("Gaddis");
+        employee.setFirstName("Gary M.");
+        employee.setLastName("Gaddis");
         employee.setPosition("Telephone service representative");
         employee.setShift("Evening");
 
@@ -118,10 +114,7 @@ public class HomeController {
         return "companyform";
     }
     @PostMapping("processCompany")
-    public String processForm(@Valid Company company, BindingResult result){
-        if (result.hasErrors()){
-            return "companyform";
-        }
+    public String processForm(@ModelAttribute Company company){
         companyRepository.save(company);
         return "redirect:/";
     }
@@ -132,10 +125,8 @@ public class HomeController {
         return "employeeform";
     }
     @PostMapping("processEmployee")
-    public String processForm(@Valid Employee employee, BindingResult result){
-        if (result.hasErrors()){
-            return "employeeform";
-        }
+    public String processForm(@ModelAttribute Employee employee){
+
         employeeRepository.save(employee);
         return "redirect:/";
     }
